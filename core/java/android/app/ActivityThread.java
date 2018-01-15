@@ -63,7 +63,7 @@ import android.os.Bundle;
 import android.os.Debug;
 import android.os.DropBoxManager;
 import android.os.Environment;
-import android.os.GraphicsEnvironment;
+
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.LocaleList;
