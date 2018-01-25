@@ -1487,6 +1487,21 @@ public final class BatteryStatsService extends IBatteryStats.Stub
                 }
             }
 
+            WifiActivityEnergyInfo wifiInfo = null;
+            BluetoothActivityEnergyInfo bluetoothInfo = null;
+            ModemActivityInfo modemInfo = null;
+            try {
+                wifiInfo = awaitControllerInfo(wifiReceiver);
+            } catch (TimeoutException e) {
+                Slog.w(TAG, "Timeout reading wifi stats");
+            }
+
+            try {
+                bluetoothInfo = awaitControllerInfo(bluetoothReceiver);
+            } catch (TimeoutException e) {
+                Slog.w(TAG, "Timeout reading bt stats");
+            }
+
             synchronized (mStats) {
                 mStats.addHistoryEventLocked(
                         SystemClock.elapsedRealtime(),
